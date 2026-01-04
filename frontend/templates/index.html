@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Form Filling Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>📋 AI Form Filling Assistant</h1>
+<p>Automated Government Form Filling</p>
+
+<!-- ================= Upload Section ================= -->
+<section>
+  <h2>Step 1: Upload Document</h2>
+  <input type="file" id="fileInput" accept=".pdf,image/*">
+  <br><br>
+  <button onclick="uploadFile()">Extract</button>
+
+  <!-- Status Message -->
+  <div id="statusMessage" class="status-message" style="display:none"></div>
+</section>
+
+<!-- ================= Extracted Data ================= -->
+<section id="extractedSection" style="display:none">
+  <h2>Extracted Information</h2>
+  <pre id="extractedData"></pre>
+</section>
+
+<!-- ================= Forms Section ================= -->
+<section id="formsSection" style="display:none">
+  <h2>Step 2: Select Government Form</h2>
+  <div id="forms"></div>
+</section>
+
+<!-- ================= Filled Form ================= -->
+<section id="filledFormSection" style="display:none">
+  <h2 id="formTitle"></h2>
+  <div id="fields"></div>
+
+  <br>
+  <button onclick="downloadJSON()">⬇ Download JSON</button>
+ 
+</section>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
